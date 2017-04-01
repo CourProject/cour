@@ -23,7 +23,7 @@
       <input id="find-movie" type="submit" value="Movie Search">
     </form>
 
-    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script type="text/javascript">
       // This .on("click") function will trigger the AJAX Call
       $("#find-movie").on("click", function(event) {
@@ -36,7 +36,7 @@
         var movie = $("#movie-input").val().trim();
 
         // Here we construct our URL
-        var queryURL = "http://food2fork.com/api/search?key=bf313761c5b119fade4c91a4b582de08&q=" + movie;
+        var queryURL = "https://food2fork.com/api/search?key=bf313761c5b119fade4c91a4b582de08&q=" + movie;
 
         // Write code between the dashes below to hit the queryURL with $ajax, then take the response data
         // and display it in the div with an id of movie-view
