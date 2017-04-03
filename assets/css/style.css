@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Champagne';
+  src: url('https://natepond.github.io/cour/assets/fonts/champagne_limousines/Champagne.ttf');
+  src: url('https://natepond.github.io/cour/assets/fonts/champagne_limousines/Champagne.ttf?#iefix') format('embedded-opentype'), url('https://natepond.github.io/cour/assets/fonts/champagne_limousines/Champagne.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ChampagneItalic';
+  src: url('https://natepond.github.io/cour/assets/fonts/champagne_limousines/ChampagneItalic.ttf');
+  src: url('https://natepond.github.io/cour/assets/fonts/champagne_limousines/ChampagneItalic.ttf?#iefix') format('embedded-opentype'), url('https://natepond.github.io/cour/assets/fonts/champagne_limousines/ChampagneItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ChampagneBold';
+  src: url('https://natepond.github.io/cour/assets/fonts/champagne_limousines/ChampagneBold.ttf');
+  src: url('https://natepond.github.io/cour/assets/fonts/champagne_limousines/ChampagneBold.ttf?#iefix') format('embedded-opentype'), url('https://natepond.github.io/cour/assets/fonts/champagne_limousines/ChampagneBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ChampagneBoldItalic';
+  src: url('https://natepond.github.io/cour/assets/fonts/champagne_limousines/ChampagneBoldItalic.ttf');
+  src: url('https://natepond.github.io/cour/assets/fonts/champagne_limousines/ChampagneBoldItalic.ttf?#iefix') format('embedded-opentype'), url('https://natepond.github.io/cour/assets/fonts/champagne_limousines/ChampagneBoldItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
