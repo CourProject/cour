@@ -33,8 +33,8 @@
 
 @font-face {
   font-family: 'jellyka';
-  src: url('https://natepond.github.io/cour/assets/fonts/jellyka/jellykya.ttf');
-  src: url('https://natepond.github.io/cour/assets/fonts/jellyka/jellykya.ttf?#iefix') format('embedded-opentype'), url('https://natepond.github.io/cour/assets/fonts/jellyka/jellykya.ttf') format('truetype');
+  src: url('https://natepond.github.io/cour/assets/fonts/jellyka/jellyka.ttf');
+  src: url('https://natepond.github.io/cour/assets/fonts/jellyka/jellyka.ttf?#iefix') format('embedded-opentype'), url('https://natepond.github.io/cour/assets/fonts/jellyka/jellyka.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
