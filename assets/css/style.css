@@ -29,3 +29,25 @@
   font-weight: normal;
   font-style: normal;
 }
+
+
+@font-face {
+  font-family: 'jellyka';
+  src: url('https://natepond.github.io/cour/assets/fonts/jellyka/jellykya.ttf');
+  src: url('https://natepond.github.io/cour/assets/fonts/jellyka/jellykya.ttf?#iefix') format('embedded-opentype'), url('https://natepond.github.io/cour/assets/fonts/jellyka/jellykya.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FLbrsa1';
+  src: url('https://natepond.github.io/cour/assets/fonts/francisco_lucas/FLbriosa/FLbrsa1.ttf');
+  src: url('https://natepond.github.io/cour/assets/fonts/francisco_lucas/FLbriosa/FLbrsa1.ttf?#iefix') format('embedded-opentype'), url('https://natepond.github.io/cour/assets/fonts/francisco_lucas/FLbriosa/FLbrsa1.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#projName {
+  font-family: "jellyka";
+  font-size: 50px
+}
