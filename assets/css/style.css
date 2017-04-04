@@ -42,16 +42,18 @@ body {
   width: 98.8%;
 }
 
+#cour-text{
+  font-size: 120px;
+  font-family: 'ChampagneBoldItalic';
+   margin-top: 50px;
+}
 #going-out-content {
   position: relative;
   height: 300px
 }
 
-f58cacff pink 314e55ff grey 73c9c9ff blue #cour-text {
-  font-size: 120px;
-  font-family: 'ChampagneBoldItalic';
-  margin-top: 50px;
-}
+// f58cacff pink 314e55ff grey 73c9c9ff blue 
+{}
 
 #cour-icon {
   width: 300px;
