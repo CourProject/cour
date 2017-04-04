@@ -75,3 +75,42 @@ body {
 #today-btn:hover {
 	color: #F58CAC;
 }
+
+#header-container {
+	margin-left: 20%;
+	border-bottom: solid 3px #F58CAC;
+}
+
+#cour-icon-going-out {
+	width: 90px;
+	height: 90px;
+	float: left;
+	margin: 5px 20px;
+}
+
+#going-out-head {
+	font-family: 'ChampagneBold';
+	font-size: 60px;
+	float: left;
+}
+
+#nav-btns {
+	float: right;
+	color: #73C9C9;
+	margin: 40px 10px 0px 0px;
+	font-size: 18px;
+
+}
+
+#going-out-content {
+	margin: 40px 20px;
+}
+
+.panel-going-out {
+	background-color: #314E55;
+	border-color: #F58CAC;
+	/*margin-top: 40px;*/
+	font-family: 'ChampagneBold';
+	border-radius: 25px;
+
+}
