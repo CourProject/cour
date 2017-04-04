@@ -30,24 +30,55 @@
   font-style: normal;
 }
 
+body {
+	background-color: #616161;
 
-@font-face {
-  font-family: 'jellyka';
-  src: url('https://natepond.github.io/cour/assets/fonts/jellyka/jellyka.ttf');
-  src: url('https://natepond.github.io/cour/assets/fonts/jellyka/jellyka.ttf?#iefix') format('embedded-opentype'), url('https://natepond.github.io/cour/assets/fonts/jellyka/jellyka.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+	text-align: center;
+	color: #73C9C9;
+	/*color: #5E7DAB;*/
+
+	/*font-family: 'Shrikhand', cursive;*/
+
+
 }
 
-@font-face {
-  font-family: 'FLbrsa1';
-  src: url('https://natepond.github.io/cour/assets/fonts/francisco_lucas/FLbriosa/FLbrsa1.ttf');
-  src: url('https://natepond.github.io/cour/assets/fonts/francisco_lucas/FLbriosa/FLbrsa1.ttf?#iefix') format('embedded-opentype'), url('https://natepond.github.io/cour/assets/fonts/francisco_lucas/FLbriosa/FLbrsa1.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+#cour-text {
+	font-size: 120px;
+	font-family: 'ChampagneBoldItalic';
+	margin-top: 50px;
+
+}
+#cour-icon {
+	width: 300px;
+	height: 300px;
 }
 
-#projName {
-  font-family: "jellyka";
-  font-size: 50px
+#home-icon {
+  width: 300px;
+  height: 300px;
+}
+
+#city-icon {
+  width: 300px;
+  height: 300px;
+}
+
+#panel-h3 {
+	font-size: 90px;
+ 	font-family: 'ChampagneBold';
+
+
+}
+
+#today-btn {
+	font-size: 90px;
+	background-color: #314E55;
+	margin-bottom: 25px;
+	border-radius: 40px;
+	color: #ECF0F1;
+
+}
+#today-btn:hover {
+	color: #F58CAC;
+>>>>>>> 03c1296dc13e0ef7d900368fe57a9a51f31c0434
 }
