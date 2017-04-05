@@ -31,19 +31,20 @@
 }
 
 html {
-  height: 300px;
+  overflow: hidden;
 }
 
 body {
   background-color: #616161;
-  height: 300px;
   text-align: center;
   color: #73C9C9;
-  width: 98.8%;
+  // width: 100%;
+  margin-left: inherit;
 }
 
-#cour-text{
-  font-size: 120px;
+
+.cour-text{
+  font-size: 105px;
   font-family: 'ChampagneBoldItalic';
    margin-top: 50px;
 }
@@ -54,6 +55,11 @@ body {
 
 // f58cacff pink 314e55ff grey 73c9c9ff blue 
 {}
+
+.p2icons{
+  top: 100px;
+}
+
 
 #cour-icon {
   width: 300px;
@@ -88,6 +94,7 @@ body {
 }
 
 .dog {
+  width: 100%;
   padding-right: inherit;
   position: relative;
   top: -100px;
