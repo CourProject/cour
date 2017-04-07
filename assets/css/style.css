@@ -212,4 +212,19 @@ a{ color: #F58CAC;}
   border-color: #565656;
   font-family: 'ChampagneBold';
   border-radius: 25px;
+  height: 666px;
 }
+
+#add-info, #back-btn-panel1, #back-btn-panel2 {
+  background-color: #73C9C9;
+  color: #303030;
+  border-color: #F58CAC;
+  font-size: 20px;
+}
+
+/*.search {
+  position: relative;
+  top: -500px;
+}*/
+
+
