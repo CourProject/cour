@@ -1470,12 +1470,15 @@
       zoomed(dispatch);
     }
     function dblclicked() {
+      
       var dispatch = event.of(this, arguments), p = d3.mouse(this), l = location(p), k = Math.log(view.k) / Math.LN2;
       zoomstarted(dispatch);
+
       scaleTo(Math.pow(2, d3.event.shiftKey ? Math.ceil(k) - 1 : Math.floor(k) + 1));
       translateTo(p, l);
       zoomed(dispatch);
       zoomended(dispatch);
+
     }
     return d3.rebind(zoom, event, "on");
   };
