@@ -38,7 +38,6 @@ body {
   background-color: #616161;
   text-align: center;
   color: #73C9C9;
-  // width: 100%;
   margin-left: inherit;
 }
 
@@ -54,7 +53,7 @@ body {
 }
 
 // f58cacff pink 314e55ff grey 73c9c9ff blue 
-{}
+
 
 .p2icons{
   top: 100px;
@@ -212,4 +211,40 @@ a{ color: #F58CAC;}
   border-color: #565656;
   font-family: 'ChampagneBold';
   border-radius: 25px;
+  height: 666px;
 }
+.bubbleContainer{
+  position: relative;
+  top: -650px;
+  left: -200px;
+}
+
+/*had to create two add-info ids for GM API and SG*/
+/*still uses the same styling*/
+#add-infoGM, #add-infoSG, #back-btn-panel1, #back-btn-panel2 {
+  background-color: #73C9C9;
+  color: #303030;
+  border-color: #F58CAC;
+  font-size: 20px;
+}
+
+circle {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+text{
+  fill: #ECF0F1;
+}
+
+/*inserted an ID for zipcode label*/
+#name-inputGM, #name-inputSG {
+  font-size: 28px;
+}
+
+/*defined a height for maps so that map can be seen*/
+#map {
+  height: 500px;
+}
+
+
