@@ -211,24 +211,17 @@ a{ color: #F58CAC;}
   border-color: #565656;
   font-family: 'ChampagneBold';
   border-radius: 25px;
-<<<<<<< HEAD
-  height: 666px;
-=======
   height: 666px
 }
 .panelsecond {
   height: ;
->>>>>>> 1aafa2f45b77269385883ce455aecabcf7e9707c
 }
 .bubbleContainer{
   position: relative;
   top: -650px;
   left: -200px;
-<<<<<<< HEAD
-=======
   margin-left: -15px;
   margin-top: 15px;
->>>>>>> 1aafa2f45b77269385883ce455aecabcf7e9707c
 }
 
 /*had to create two add-info ids for GM API and SG*/
@@ -243,8 +236,6 @@ a{ color: #F58CAC;}
 circle {
   fill: currentColor;
   stroke: currentColor;
-<<<<<<< HEAD
-=======
 }
 
 text{
@@ -341,7 +332,7 @@ body {
 .node:hover {
   stroke-width: 8;
   opacity: 1;
->>>>>>> 1aafa2f45b77269385883ce455aecabcf7e9707c
+
 }
 
 text{

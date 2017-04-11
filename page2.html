@@ -6,6 +6,7 @@
     <title>Going Out</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
 </head>
 
 <body>
@@ -58,7 +59,7 @@
                                         <!-- inserted id=name-inputGM(GoogleMaps) for the label below -->
                                         <label for="name-input" id="name-inputGM">Zip Code</label>
                                         <!-- Changed zipcode id to include GM(google maps) -->
-                                        <input class="form-control" id="zip-code-inputGM" type="text">
+                                        <input class="form-control" id="zip-code-inputGM" type="text" data-bind="value: location">
                                     </div>
                                 </form>
                                 <!-- changed button id -->
@@ -79,14 +80,8 @@
                     <div class="panel-body">
                         <div id="first-info-panel2">
                             <h1 class="col-lg-12 row-null">invisible</h1>
-<<<<<<< HEAD
-
                             <!-- added ID concerts-click for concerts Div -->
                             <div class="category rounded-top col-lg-12 concerts-sports-click" id="concerts-click">
-=======
-                            <!-- added ID concerts-click for concerts Div -->
-                            <div class="category col-lg-12 concerts-sports-click" id="concerts-click">
->>>>>>> 1aafa2f45b77269385883ce455aecabcf7e9707c
                                 <div class="col-lg-offset-4 col-lg-1"><img src="assets/css/Images/ConcerIcon.svg" alt="concerts icon" class="category-icon" /></div>
                                 <h1 class="col-lg-12">Concerts</h1>
                             </div>
@@ -99,18 +94,12 @@
                                 <div class="col-lg-offset-4 col-lg-1"><img src="assets/css/Images/TheaterIcon.svg" alt="theater icon" class="category-icon" /></div>
                                 <h1 class="col-lg-12">Theater</h1>
                             </div>
-<<<<<<< HEAD
-                            
-=======
-                        </div>
-                        <div class="googleMapsAPIList">
->>>>>>> 1aafa2f45b77269385883ce455aecabcf7e9707c
                         </div>
                         <div class="col-lg-12 search2">
                             <form role="form">
                                 <div class="form-group">
                                     <!-- inserted id=name-inputSG (SeatGeek) for the label below -->
-                                    <label for="name-input" id="name-inputSG">Zip Code</label>
+                                    <label for="name-input" id="name-inputSG">Zip Code</label>con
                                     <!-- zip-code-input is now zip-code-inputSG -->
                                     <input class="form-control" id="zip-code-inputSG" type="text">
                                 </div>
@@ -123,7 +112,7 @@
                             <button class="btn btn-default" id="add-infoSG" type="submit">Submit</button>
                             <button class="btn btn-default" id="back-btn-panel2" type="submit">Back</button>
                         </div>
-                        <div class="col-lg-12" id="panel2-results">
+                        <div class="col-lg-12 googleMapsAPIList">
                         </div>
                         <div class="col-lg-12 seatGeeksAPI">
                         </div>
