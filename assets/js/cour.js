@@ -111,6 +111,7 @@ $("#add-infoGM").on("click", function(event) {
 
 // Google maps api
 function initMap() {
+    $('#map').empty();
     zipcode;
     console.log(zipcode);
 
@@ -191,9 +192,17 @@ $('button').on('click', function() {
     $.ajax({
         method: "GET",
         url: queryURL
-    }).done(function(respone) {
-        console.log(respone);
+    }).done(function(response) {
+        $('#map').empty();
+        console.log(response);
+        for (var i = 0; i < 5; i++) {
+        $('#map').append("<p> Artist: " + response.events[i].title + '</p>');
+        $('#map').append("<p> Venue: " + response.events[i].venue.name + '</p>');
+        $('#map').append("<a href ='" + response.events[i].url + "' target= _blank>Buy Tickets</a>");
+    }
     });
+    $("#first-info-panel1").hide();
+    $(".googleMapsAPI").show();
 });
 
 
