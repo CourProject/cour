@@ -1,4 +1,4 @@
-var instructablesData = [
+var instructablesDataDYS = [
     {
         "name":"technology",
         "channels":[
