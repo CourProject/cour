@@ -161,12 +161,35 @@ function createMarker(place) {
     });
 }
 
+// Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDUuTEo0pNuJ489UnVdRUqFEL3FQqMdK9I",
+        authDomain: "my-awesome-project-487ee.firebaseapp.com",
+        databaseURL: "https://my-awesome-project-487ee.firebaseio.com",
+        projectId: "my-awesome-project-487ee",
+        storageBucket: "my-awesome-project-487ee.appspot.com",
+        messagingSenderId: "693219172838"
+    };
+    firebase.initializeApp(config);
+
+    $('#submitForm').on('click', function() {
+        event.preventDefault();
+
+        var gender = $('#gender').val().trim();
+        var age = $('#age').val().trim();
+
+        database.ref().push({
+            gender: gender,
+            age: age
+        })
+    });
+
 // seatGeeksAPI
 $('button').on('click', function() {
     var date = $('#date-input').val().trim();
     var zipcode = $('#zip-code-inputSG').val().trim();
 
-    var queryURL = 'https://api.seatgeek.com/2/events?&geoip=' + zipcode + '&sort=score.desc&type=' + typeSG + '&datetime_utc=' + date + '&client_id=NzIwMTk3MnwxNDkxMDAyMDQ0LjE2'
+    var queryURL = 'https://api.seatgeek.com/2/events?&geoip=' + zipcode + '&sort=score.desc&type=' + typeSG + '&datetime_utc.gt=' + date + '&client_id=NzIwMTk3MnwxNDkxMDAyMDQ0LjE2'
     console.log(queryURL);
     $.ajax({
         method: "GET",
