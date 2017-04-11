@@ -186,7 +186,7 @@ $('button').on('click', function() {
     var date = $('#date-input').val().trim();
     var zipcode = $('#zip-code-inputSG').val().trim();
 
-    var queryURL = 'https://api.seatgeek.com/2/events?&geoip=' + zipcode + '&sort=score.desc&type=' + typeSG + '&datetime_utc=' + date + '&client_id=NzIwMTk3MnwxNDkxMDAyMDQ0LjE2'
+    var queryURL = 'https://api.seatgeek.com/2/events?&geoip=' + zipcode + '&sort=score.desc&type=' + typeSG + '&datetime_utc.gt=' + date + '&client_id=NzIwMTk3MnwxNDkxMDAyMDQ0LjE2'
     console.log(queryURL);
     $.ajax({
         method: "GET",
