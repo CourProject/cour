@@ -158,6 +158,29 @@ function createMarker(place) {
     });
 }
 
+// Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDUuTEo0pNuJ489UnVdRUqFEL3FQqMdK9I",
+        authDomain: "my-awesome-project-487ee.firebaseapp.com",
+        databaseURL: "https://my-awesome-project-487ee.firebaseio.com",
+        projectId: "my-awesome-project-487ee",
+        storageBucket: "my-awesome-project-487ee.appspot.com",
+        messagingSenderId: "693219172838"
+    };
+    firebase.initializeApp(config);
+
+    $('#submitForm').on('click', function() {
+        event.preventDefault();
+
+        var name = $('#name').val().trim();
+        var age = $('#age').val().trim();
+
+        database.ref().push({
+            name: name,
+            age: age
+        })
+    });
+
 // seatGeeksAPI
 $('button').on('click', function() {
     var date = $('#date-input').val().trim();
