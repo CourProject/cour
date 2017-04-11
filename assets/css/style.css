@@ -211,12 +211,24 @@ a{ color: #F58CAC;}
   border-color: #565656;
   font-family: 'ChampagneBold';
   border-radius: 25px;
+<<<<<<< HEAD
   height: 666px;
+=======
+  height: 666px
+}
+.panelsecond {
+  height: ;
+>>>>>>> 1aafa2f45b77269385883ce455aecabcf7e9707c
 }
 .bubbleContainer{
   position: relative;
   top: -650px;
   left: -200px;
+<<<<<<< HEAD
+=======
+  margin-left: -15px;
+  margin-top: 15px;
+>>>>>>> 1aafa2f45b77269385883ce455aecabcf7e9707c
 }
 
 /*had to create two add-info ids for GM API and SG*/
@@ -231,6 +243,105 @@ a{ color: #F58CAC;}
 circle {
   fill: currentColor;
   stroke: currentColor;
+<<<<<<< HEAD
+=======
+}
+
+text{
+  fill: #ECF0F1;
+}
+
+/*inserted an ID for zipcode label*/
+#name-inputGM, #name-inputSG {
+  font-size: 28px;
+}
+
+/*defined a height for maps so that map can be seen*/
+#map {
+  height: 500px;
+}
+
+.head-bar {
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 10px;
+  width: 91.5%;
+  height: 40px;
+  margin-left: 2%;
+}
+
+.app-name {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.instructions-text {
+  margin-left: 20px;
+  margin-right: 20px;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 15px;
+}
+
+.credit {
+  font-size: 13px;
+}
+
+body {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.container {
+  position: relative;
+}
+
+.instructions {
+  float: left;
+  width: 33%;
+  height: 600px;
+  border: solid black 3px;
+  margin-left: 1%;
+  overflow: scroll;
+}
+
+.bubbleAPI {
+  left: 178px;
+  overflow-x: hidden;
+  border-radius: 15px 15px;
+}
+
+.bubble-wrapper {
+  margin-left: -200px;
+}
+
+.bubble {
+  stroke-width: 2px;
+  width: 100%;
+  height: 630px;
+  border-radius: 0px 15px 15px;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.node {
+  cursor: pointer;
+  opacity: .9;
+}
+
+.node:hover {
+  stroke-width: 8;
+  opacity: 1;
+>>>>>>> 1aafa2f45b77269385883ce455aecabcf7e9707c
 }
 
 text{
