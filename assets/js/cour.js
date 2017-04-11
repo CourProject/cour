@@ -77,7 +77,7 @@ $("#back-btn-panel2").click(function() {
 
 // var used for googleMapsAPI
 var map;
-var location2
+var location;
 var infowindow;
 var zipcode = {
     lat: 35.9132,
@@ -98,7 +98,7 @@ var labelIndex = 0
 $("#add-infoGM").on("click", function(event) {
     $("#panel1-results").hide();
     $(".googleMapsAPI").fadeIn(2000);
-    var location;
+    var location = $('#zip-code-inputGM').val();
     console.log(location);
     event.preventDefault();
     // address search box
@@ -124,7 +124,6 @@ $("#add-infoGM").on("click", function(event) {
 
 // Google maps api
 function initMap() {
-    $('#map').empty();
     zipcode;
     console.log(zipcode);
 
@@ -145,9 +144,9 @@ function initMap() {
 // Google maps api
 function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
+
         for (var i = 0; i < 5; i++) {
             createMarker(results[i]);
-            console.log(results[i].name);
             var numberOrder = i + 1;
             $('.googleMapsAPIList').append('<p>' + numberOrder + '.  Name: ' + results[i].name + '</p>');
             $('.googleMapsAPIList').append('<p> Address: ' + results[i].vicinity + '</p>');
@@ -197,7 +196,7 @@ $('#submitForm').on('click', function() {
 });
 
 // seatGeeksAPI
-$('button').on('click', function() {
+$('#add-infoSG').on('click', function() {
     var date = $('#date-input').val().trim();
     var zipcode = $('#zip-code-inputSG').val().trim();
     var queryURL = 'https://api.seatgeek.com/2/events?&geoip=' + zipcode + '&sort=score.desc&type=' + typeSG + '&datetime_utc.gt=' + date + '&client_id=NzIwMTk3MnwxNDkxMDAyMDQ0LjE2'
