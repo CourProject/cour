@@ -226,7 +226,7 @@ a{ color: #F58CAC;}
 
 /*had to create two add-info ids for GM API and SG*/
 /*still uses the same styling*/
-#add-infoGM, #add-infoSG, #back-btn-panel1, #back-btn-panel2 {
+#add-infoGM, #add-infoSG, #back-btn-panel1, #back-btn-panel2, #back-btn-google, #back-btn-seatGeek {
   background-color: #73C9C9;
   color: #303030;
   border-color: #F58CAC;
@@ -339,14 +339,30 @@ text{
   fill: #ECF0F1;
 }
 
+/*<<<<<<< HEAD*/
+.googleMapsAPIList {
+  font-size: 18px;
+  margin-top: 15px;
+}
+.search, .search2 {
+  margin-top: 80px;
+}
+
+.googleMapsAPI {
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+/*=======*/
 /*inserted an ID for zipcode label*/
 #name-inputGM, #name-inputSG {
   font-size: 28px;
 }
 
 /*defined a height for maps so that map can be seen*/
-#map {
+/*#map {
   height: 500px;
-}
+}*/
 
 
+/*>>>>>>> 276d761fb4a903a674960eb4f21df827bd10f413*/

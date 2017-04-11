@@ -10,6 +10,9 @@ $(document).ready(function() {
     $(".googleMapsAPI").hide();
     $('.bubble-wrapper').hide();
     $('.googleMapsAPIList').hide();
+    // added hide function for button containers //
+    $("#google-button-container").hide();
+    $("#seatGeek-back-btn-container").hide();
 
 
 
@@ -72,12 +75,35 @@ $("#back-btn-panel1").click(function() {
 $("#back-btn-panel2").click(function() {
     $(".search2").hide();
     $("#first-info-panel2").fadeIn(2000);
+});
+// added click function for google result back button//
+$("#back-btn-google").click(function() {
+  $(".googleMapsAPI").hide();
+  $(".googleMapsAPIList").hide().empty();
+  $("#google-button-container").hide();
+  $("#first-info-panel1").fadeIn(2000);
+  $("#first-info-panel2").fadeIn(2000);
+});
+
+// added click function for seatGeek result back button
+
+$("#back-btn-seatGeek").click(function() {
+  $(".googleMapsAPI").hide();
+  $("#seatGeek-back-btn-container").hide();
+  $(".search2").hide();
+  $("#first-info-panel1").fadeIn(2000);
+  $("#first-info-panel2").fadeIn(2000);
+  $("#back-btn-panel2").show();
+
+
 })
+
+
 
 
 // var used for googleMapsAPI
 var map;
-var location2
+var location
 var infowindow;
 var zipcode = {
     lat: 35.9132,
@@ -98,7 +124,7 @@ var labelIndex = 0
 $("#add-infoGM").on("click", function(event) {
     $("#panel1-results").hide();
     $(".googleMapsAPI").fadeIn(2000);
-    var location;
+    var location = $('#zip-code-inputGM').val();
     console.log(location);
     event.preventDefault();
     // address search box
@@ -155,6 +181,10 @@ function callback(results, status) {
         }
         $("#first-info-panel2").hide();
         $('.googleMapsAPIList').fadeIn(5000);
+
+        // added button fade in//
+        $("#google-button-container").fadeIn(5000);
+
     }
 }
 // Google maps api
@@ -197,7 +227,7 @@ $('#submitForm').on('click', function() {
 });
 
 // seatGeeksAPI
-$('button').on('click', function() {
+$('#add-infoSG').on('click', function() {
     var date = $('#date-input').val().trim();
     var zipcode = $('#zip-code-inputSG').val().trim();
     var queryURL = 'https://api.seatgeek.com/2/events?&geoip=' + zipcode + '&sort=score.desc&type=' + typeSG + '&datetime_utc.gt=' + date + '&client_id=NzIwMTk3MnwxNDkxMDAyMDQ0LjE2'
@@ -216,14 +246,10 @@ $('button').on('click', function() {
     });
     $("#first-info-panel1").hide();
     $(".googleMapsAPI").show();
+    $("#seatGeek-back-btn-container").show();
+    $("#back-btn-panel2").hide();
+
 });
-
-
-$(".search").hide();
-$(".search2").hide();
-$("#panel1-results").hide();
-$("#panel2-results").hide();
-
 
 // Instructable API
 function clickFunctionsForStayingInPage2() {
