@@ -222,7 +222,9 @@ a{ color: #F58CAC;}
   left: -200px;
 }
 
-#add-info, #back-btn-panel1, #back-btn-panel2 {
+/*had to create two add-info ids for GM API and SG*/
+/*still uses the same styling*/
+#add-infoGM, #add-infoSG, #back-btn-panel1, #back-btn-panel2 {
   background-color: #73C9C9;
   color: #303030;
   border-color: #F58CAC;
@@ -238,3 +240,94 @@ text{
   fill: #ECF0F1;
 }
 
+/*inserted an ID for zipcode label*/
+#name-inputGM, #name-inputSG {
+  font-size: 28px;
+}
+
+/*defined a height for maps so that map can be seen*/
+#map {
+  height: 500px;
+}
+
+.head-bar {
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 10px;
+  width: 91.5%;
+  height: 40px;
+  margin-left: 2%;
+}
+
+.app-name {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.instructions-text {
+  margin-left: 20px;
+  margin-right: 20px;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 15px;
+}
+
+.credit {
+  font-size: 13px;
+}
+
+body {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.container {
+  position: relative;
+}
+
+.instructions {
+  float: left;
+  width: 33%;
+  height: 600px;
+  border: solid black 3px;
+  margin-left: 1%;
+  overflow: scroll;
+}
+
+.bubbleAPI {
+  left: 178px;
+  overflow-x: hidden;
+  border-radius: 15px 15px;
+}
+
+.bubble-wrapper {
+  margin-left: -200px;
+}
+
+.bubble {
+  stroke-width: 2px;
+  width: 100%;
+  height: 630px;
+  border-radius: 0px 15px 15px;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.node {
+  cursor: pointer;
+  opacity: .9;
+}
+
+.node:hover {
+  stroke-width: 8;
+  opacity: 1;
+}
