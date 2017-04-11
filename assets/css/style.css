@@ -211,9 +211,11 @@ a{ color: #F58CAC;}
   border-color: #565656;
   font-family: 'ChampagneBold';
   border-radius: 25px;
-  height: 666px;
+  height: 666px
 }
-
+.panelsecond {
+  height: ;
+}
 .bubbleContainer{
   position: relative;
   top: -650px;
