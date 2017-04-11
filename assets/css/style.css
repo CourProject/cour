@@ -211,12 +211,17 @@ a{ color: #F58CAC;}
   border-color: #565656;
   font-family: 'ChampagneBold';
   border-radius: 25px;
-  height: 666px;
+  height: 666px
+}
+.panelsecond {
+  height: ;
 }
 .bubbleContainer{
   position: relative;
   top: -650px;
   left: -200px;
+  margin-left: -15px;
+  margin-top: 15px;
 }
 
 /*had to create two add-info ids for GM API and SG*/
