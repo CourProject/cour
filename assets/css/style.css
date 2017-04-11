@@ -226,7 +226,7 @@ a{ color: #F58CAC;}
 
 /*had to create two add-info ids for GM API and SG*/
 /*still uses the same styling*/
-#add-infoGM, #add-infoSG, #back-btn-panel1, #back-btn-panel2 {
+#add-infoGM, #add-infoSG, #back-btn-panel1, #back-btn-panel2, #back-btn-google {
   background-color: #73C9C9;
   color: #303030;
   border-color: #F58CAC;
@@ -333,3 +333,12 @@ body {
   stroke-width: 8;
   opacity: 1;
 }
+
+.googleMapsAPIList {
+  font-size: 18px;
+  padding-top: 10px;
+}
+.search, .search2 {
+  margin-top: 80px;
+}
+

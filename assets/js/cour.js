@@ -12,6 +12,7 @@ $(document).ready(function() {
     $(".googleMapsAPI").hide();
     $('.bubble-wrapper').hide();
     $('.googleMapsAPIList').hide();
+    $("#google-button-container").hide();
 
 
     // typeGM is used for google Maps API
@@ -72,6 +73,17 @@ $("#back-btn-panel1").click(function() {
 $("#back-btn-panel2").click(function() {
     $(".search2").hide();
     $("#first-info-panel2").fadeIn(2000);
+})
+// added click function for google result back button//
+$("#back-btn-google").click(function() {
+  $(".googleMapsAPI").hide();
+  $(".googleMapsAPIList").hide().empty();
+  $("#google-button-container").hide();
+  $("#first-info-panel1").fadeIn(2000);
+  $("#first-info-panel2").fadeIn(2000);
+
+
+
 })
 
 
@@ -144,6 +156,8 @@ function callback(results, status) {
         }
         $("#first-info-panel2").hide();
         $('.googleMapsAPIList').fadeIn(5000);
+        $("#google-button-container").fadeIn(5000);
+
     }
 }
 // Google maps api
