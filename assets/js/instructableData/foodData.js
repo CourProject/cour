@@ -1,4 +1,4 @@
-var instructablesData = [
+var instructablesDataFood = [
 
             {
                 "name":"bacon",
