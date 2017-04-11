@@ -332,4 +332,21 @@ body {
 .node:hover {
   stroke-width: 8;
   opacity: 1;
+
 }
+
+text{
+  fill: #ECF0F1;
+}
+
+/*inserted an ID for zipcode label*/
+#name-inputGM, #name-inputSG {
+  font-size: 28px;
+}
+
+/*defined a height for maps so that map can be seen*/
+#map {
+  height: 500px;
+}
+
+
