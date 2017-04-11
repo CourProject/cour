@@ -1,5 +1,3 @@
-
-
 $(document).ready(function() {
     // going out page on ready functions //
     // $(".bubbleContainer").hide();H
@@ -12,7 +10,10 @@ $(document).ready(function() {
     $(".googleMapsAPI").hide();
     $('.bubble-wrapper').hide();
     $('.googleMapsAPIList').hide();
+    // added hide function for button containers //
     $("#google-button-container").hide();
+    $("#seatGeek-back-btn-container").hide();
+
 
 
     // typeGM is used for google Maps API
@@ -23,6 +24,7 @@ $(document).ready(function() {
 
 
 })
+
 
 
 // click event listners for going out page
@@ -73,7 +75,7 @@ $("#back-btn-panel1").click(function() {
 $("#back-btn-panel2").click(function() {
     $(".search2").hide();
     $("#first-info-panel2").fadeIn(2000);
-})
+});
 // added click function for google result back button//
 $("#back-btn-google").click(function() {
   $(".googleMapsAPI").hide();
@@ -81,26 +83,48 @@ $("#back-btn-google").click(function() {
   $("#google-button-container").hide();
   $("#first-info-panel1").fadeIn(2000);
   $("#first-info-panel2").fadeIn(2000);
+});
 
+// added click function for seatGeek result back button
+
+$("#back-btn-seatGeek").click(function() {
+  $(".googleMapsAPI").hide();
+  $("#seatGeek-back-btn-container").hide();
+  $(".search2").hide();
+  $("#first-info-panel1").fadeIn(2000);
+  $("#first-info-panel2").fadeIn(2000);
+  $("#back-btn-panel2").show();
 
 
 })
 
 
+
+
 // var used for googleMapsAPI
 var map;
+var location
 var infowindow;
 var zipcode = {
     lat: 35.9132,
     lng: -79.0558
 };
+
 var labels = "12345";
 var labelIndex = 0
+
+// function applyViewMode() {
+//     this.location = ko.observable(location2);
+//     console.log(this.location);
+// }
+// // Activates knockout.js
+// ko.applyBindings(new applyViewMode());
+
 
 $("#add-infoGM").on("click", function(event) {
     $("#panel1-results").hide();
     $(".googleMapsAPI").fadeIn(2000);
-    var location = $("#zip-code-inputGM").val();
+    var location = $('#zip-code-inputGM').val();
     console.log(location);
     event.preventDefault();
     // address search box
@@ -126,6 +150,7 @@ $("#add-infoGM").on("click", function(event) {
 
 // Google maps api
 function initMap() {
+    $('#map').empty();
     zipcode;
     console.log(zipcode);
 
@@ -146,9 +171,9 @@ function initMap() {
 // Google maps api
 function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
-
         for (var i = 0; i < 5; i++) {
             createMarker(results[i]);
+            console.log(results[i].name);
             var numberOrder = i + 1;
             $('.googleMapsAPIList').append('<p>' + numberOrder + '.  Name: ' + results[i].name + '</p>');
             $('.googleMapsAPIList').append('<p> Address: ' + results[i].vicinity + '</p>');
@@ -156,6 +181,8 @@ function callback(results, status) {
         }
         $("#first-info-panel2").hide();
         $('.googleMapsAPIList').fadeIn(5000);
+
+        // added button fade in//
         $("#google-button-container").fadeIn(5000);
 
     }
@@ -175,170 +202,56 @@ function createMarker(place) {
     });
 }
 
+
 // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyDUuTEo0pNuJ489UnVdRUqFEL3FQqMdK9I",
-        authDomain: "my-awesome-project-487ee.firebaseapp.com",
-        databaseURL: "https://my-awesome-project-487ee.firebaseio.com",
-        projectId: "my-awesome-project-487ee",
-        storageBucket: "my-awesome-project-487ee.appspot.com",
-        messagingSenderId: "693219172838"
-    };
-    firebase.initializeApp(config);
+var config = {
+    apiKey: "AIzaSyDUuTEo0pNuJ489UnVdRUqFEL3FQqMdK9I",
+    authDomain: "my-awesome-project-487ee.firebaseapp.com",
+    databaseURL: "https://my-awesome-project-487ee.firebaseio.com",
+    projectId: "my-awesome-project-487ee",
+    storageBucket: "my-awesome-project-487ee.appspot.com",
+    messagingSenderId: "693219172838"
+};
+firebase.initializeApp(config);
 
-    $('#submitForm').on('click', function() {
-        event.preventDefault();
+$('#submitForm').on('click', function() {
+    event.preventDefault();
 
-        var gender = $('#gender').val().trim();
-        var age = $('#age').val().trim();
+    var gender = $('#gender').val().trim();
+    var age = $('#age').val().trim();
 
-        database.ref().push({
-            gender: gender,
-            age: age
-        })
-    });
+    database.ref().push({
+        gender: gender,
+        age: age
+    })
+});
 
 // seatGeeksAPI
-$('button').on('click', function() {
+$('#add-infoSG').on('click', function() {
     var date = $('#date-input').val().trim();
     var zipcode = $('#zip-code-inputSG').val().trim();
-
     var queryURL = 'https://api.seatgeek.com/2/events?&geoip=' + zipcode + '&sort=score.desc&type=' + typeSG + '&datetime_utc.gt=' + date + '&client_id=NzIwMTk3MnwxNDkxMDAyMDQ0LjE2'
     console.log(queryURL);
     $.ajax({
         method: "GET",
         url: queryURL
-    }).done(function(respone) {
-        console.log(respone);
+    }).done(function(response) {
+        $('#map').empty();
+        console.log(response);
+        for (var i = 0; i < 5; i++) {
+            $('#map').append("<p> Artist: " + response.events[i].title + '</p>');
+            $('#map').append("<p> Venue: " + response.events[i].venue.name + '</p>');
+            $('#map').append("<a href ='" + response.events[i].url + "' target= _blank>Buy Tickets</a>");
+        }
     });
-});
-
-
-
-var javascript = $("<script>")
-var javascript2 = $("<script>")
-javascript.attr("type", "text/javascript")
-javascript2.attr("type", "text/javascript")
-javascript.attr("src", "https://natepond.github.io/cour/assets/js/instructable_Static/js/bubbleChart.js")
-javascript2.attr("src", "https://natepond.github.io/cour/assets/js/instructable_Static/js/instructableData/baseData.js")
-$("#test").append(javascript)
-
-
-
-$(document).ready(function() {
-
-    $(".search").hide();
-    $(".search2").hide();
-    $("#panel1-results").hide();
-    $("#panel2-results").hide();
-
-
-
-
-})
-
-
-
-
-var bubbleContainer = $("<div class='col-lg-6 bubbleContainer'>")
-var link = $("<link rel='stylesheet' type='text/css' href='assets/js/instructable_Static/style.css'>")
-var container = $("<div class='container'>")
-var bubbleAPI = $("<div class='bubbleAPI col-lg-6'>")
-var bubbleWrapper = $("<div class='bubble-wrapper'>")
-var test = $("<div id='test'>")
-var javascript = $("<script>")
-var javascript2 = $("<script>")
-javascript.attr("type", "text/javascript")
-javascript2.attr("type", "text/javascript")
-javascript.attr("src", "https://natepond.github.io/cour/assets/js/instructable_Static/js/bubbleChart.js")
-javascript2.attr("src", "https://natepond.github.io/cour/assets/js/instructable_Static/js/instructableData/foodData.js")
-
-var javascript3 = $("<script>")
-var javascript4 = $("<script>")
-javascript3.attr("type", "text/javascript")
-javascript4.attr("type", "text/javascript")
-javascript3.attr("src", "https://natepond.github.io/cour/assets/js/instructable_Static/js/bubbleChart.js")
-javascript4.attr("src", "https://natepond.github.io/cour/assets/js/instructable_Static/js/instructableData/baseData.js")
-
-
-
-$(".DIY-click").click(function() {
-    var javascript = $("<script>")
-    var javascript2 = $("<script>")
-    javascript.attr("type", "text/javascript")
-    javascript2.attr("type", "text/javascript")
-    javascript.attr("src", "https://natepond.github.io/cour/assets/js/instructable_Static/js/bubbleChart.js")
-    javascript2.attr("src", "https://natepond.github.io/cour/assets/js/instructable_Static/js/instructableData/baseData.js")
-
-
-    $("#test").append(javascript)
-
+    $("#first-info-panel1").hide();
+    $(".googleMapsAPI").show();
+    $("#seatGeek-back-btn-container").show();
+    $("#back-btn-panel2").hide();
 
 });
 
-$(".DIY-click").dblclick(function() {
-    $(".panelfirst").append(bubbleContainer)
-    bubbleContainer.append(link)
-    bubbleContainer.append(container)
-    container.append(bubbleAPI)
-    bubbleAPI.append(bubbleWrapper)
-    bubbleContainer.append(test)
-    var javascript = $("<script>")
-    var javascript2 = $("<script>")
-    javascript.attr("type", "text/javascript")
-    javascript2.attr("type", "text/javascript")
-    javascript.attr("src", "https://natepond.github.io/cour/assets/js/instructable_Static/js/bubbleChart.js")
-    javascript2.attr("src", "https://natepond.github.io/cour/assets/js/instructable_Static/js/instructableData/baseData.js")
-
-
-    $("#test").append(javascript2)
-
-});
-
-
-$(".Play-click").click(function() {
-
-
-    var javascript3 = $("<script>")
-    var javascript4 = $("<script>")
-    javascript3.attr("type", "text/javascript")
-    javascript4.attr("type", "text/javascript")
-    javascript3.attr("src", "https://natepond.github.io/cour/assets/js/instructable_Static/js/bubbleChart.js")
-    javascript4.attr("src", "https://natepond.github.io/cour/assets/js/instructable_Static/js/instructableData/foodData.js")
-
-    $("#test").append(javascript4)
-    $("#test").append(javascript3)
-
-    $(".panelsecond").append(bubbleContainer)
-});
-
-$(".Play-click").dblclick(function() {
-    $(".panelsecond").append(bubbleContainer)
-    bubbleContainer.append(link)
-    bubbleContainer.append(container)
-    container.append(bubbleAPI)
-    bubbleAPI.append(bubbleWrapper)
-    bubbleContainer.append(test)
-    var javascript3 = $("<script>")
-    var javascript4 = $("<script>")
-    javascript3.attr("type", "text/javascript")
-    javascript4.attr("type", "text/javascript")
-    javascript3.attr("src", "https://natepond.github.io/cour/assets/js/instructable_Static/js/bubbleChart.js")
-    javascript4.attr("src", "https://natepond.github.io/cour/assets/js/instructable_Static/js/instructableData/foodData.js")
-
-    $("#test").append(javascript4)
-    $("#test").append(javascript3)
-
-});
-
-
-
-
-// }
-
-
-
-
+// Instructable API
 function clickFunctionsForStayingInPage2() {
     var bubbleContainer = $("<div class='col-lg-6 bubbleContainer'>")
     var link = $("<link rel='stylesheet' type='text/css' href='assets/js/instructable_Static/style.css'>")
@@ -346,81 +259,59 @@ function clickFunctionsForStayingInPage2() {
     var bubbleAPI = $("<div class='bubbleAPI col-lg-6'>")
     var bubbleWrapper = $("<div class='bubble-wrapper'>")
     $('.Cooking-click').on('click', function() {
-        $(".Cooking-click").attr("class", "row-null")
-        $(".Desert-click").attr("class", "row-null")
-        $(".Cocktails-click").attr("class", "row-null")
-        $(".DIY-click").attr("class", "row-show")
-        $(".Movie-click").attr("class", "row-show")
-        $(".Play-click").attr("class", "row-show")
-        $(".DIY-click").removeClass("row-null").addClass("row-show")
-        console.log("Time to get cooking!");
+        $('.panelfirst').hide();
+        $('.panelsecond').fadeIn(3000);
         bubbleContainer.append(link)
         bubbleContainer.append(container)
         container.append(bubbleAPI)
         bubbleAPI.append(bubbleWrapper)
         bubbleContainer.hide()
-        bubbleContainer.fadeIn(2000)
-        $(".panelfirst").append(bubbleContainer)
+        bubbleContainer.fadeIn(2000);
+        $(".first-info-panel").append(bubbleContainer)
 
         makeChart({ categories: instructablesDataFood }, "categories", instructablesDataFood);
-        $(".instructable-info-panel1").hide();
-        $(".bubble-wrapper1").fadeIn(2000);
     });
 
     $('.Desert-click').on('click', function() {
-        $(".Cooking-click").attr("class", "row-null")
-        $(".Desert-click").attr("class", "row-null")
-        $(".Cocktails-click").attr("class", "row-null")
-        $(".DIY-click").attr("class", "row-show")
-        $(".Movie-click").attr("class", "row-show")
-        $(".Play-click").attr("class", "row-show")
-        console.log('Dessert, SOOO GOOD!!!!');
+        $('.panelfirst').hide();
+        $('.panelsecond').fadeIn(3000);
         bubbleContainer.append(link)
         bubbleContainer.append(container)
         container.append(bubbleAPI)
         bubbleAPI.append(bubbleWrapper)
         bubbleContainer.hide()
         bubbleContainer.fadeIn(2000)
-        $(".panelfirst").append(bubbleContainer)
+        $(".first-info-panel").append(bubbleContainer)
         makeChart({ categories: instructablesDataDessert }, "categories", instructablesDataDessert);
-        $(".instructable-info-panel1").hide();
-        $("going-out-content .bubble-wrapper:nth-child(1)").fadeIn(2000);
 
     })
 
 
     $('.DIY-click').on('click', function() {
-        $(".DIY-click").attr("class", "row-null")
-        $(".Movie-click").attr("class", "row-null")
-        $(".Play-click").attr("class", "row-null")
-        $(".Cooking-click").attr("class", "row-show")
-        $(".Desert-click").attr("class", "row-show")
-        $(".Cocktails-click").attr("class", "row-show")
-        console.log("Time to do it yourself!");
+        $('.panelsecond').hide();
+        $('.panelfirst').fadeIn(3000);
         bubbleContainer.append(link)
         bubbleContainer.append(container)
         container.append(bubbleAPI)
         bubbleAPI.append(bubbleWrapper)
         bubbleContainer.hide()
         bubbleContainer.fadeIn(2000)
-        $(".panelsecond").append(bubbleContainer)
+        $(".panel2").append(bubbleContainer)
         makeChart({ categories: instructablesDataDYS }, "categories", instructablesDataDYS);
-        $(".instructable-info-panel2").hide();
-        $("going-out-content .bubble-wrapper:nth-child(2)").fadeIn(2000);
+
     });
 
     $('.Play-click').on('click', function() {
-        console.log("Recess!!!");
+        $('.panelsecond').hide();
+        $('.panelfirst').fadeIn(3000);
         bubbleContainer.append(link)
         bubbleContainer.append(container)
         container.append(bubbleAPI)
         bubbleAPI.append(bubbleWrapper)
         bubbleContainer.hide()
         bubbleContainer.fadeIn(2000)
-        $(".panelsecond").append(bubbleContainer)
+        $(".panel2").append(bubbleContainer)
         makeChart({ categories: instructablesDataPlay }, "categories", instructablesDataPlay);
-        $(".instructable-info-panel2").hide();
-        $("going-out-content .bubble-wrapper:nth-child(2)").fadeIn(2000);
     });
 
 }
