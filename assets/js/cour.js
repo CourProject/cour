@@ -172,11 +172,11 @@ function createMarker(place) {
     $('#submitForm').on('click', function() {
         event.preventDefault();
 
-        var name = $('#name').val().trim();
+        var gender = $('#gender').val().trim();
         var age = $('#age').val().trim();
 
         database.ref().push({
-            name: name,
+            gender: gender,
             age: age
         })
     });
