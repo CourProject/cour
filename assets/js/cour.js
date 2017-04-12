@@ -170,15 +170,15 @@ function initMap() {
 // Google maps api
 function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
-
         for (var i = 0; i < results.length; i++) {
             createMarker(results[i]);
             var numberOrder = i + 1;
             $('.googleMapsAPIList').append('<p>' + numberOrder + '.  Name: ' + results[i].name + '</p>');
             $('.googleMapsAPIList').append('<p> Address: ' + results[i].vicinity + '</p>');
             $('.googleMapsAPIList').append('<p> Rating: ' + results[i].rating + '</p>');
-            if (i === 5) {
-                break;
+
+            if (i === 4) {
+              break;
             }
         }
         $("#first-info-panel2").hide();
