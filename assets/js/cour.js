@@ -78,22 +78,22 @@ $("#back-btn-panel2").click(function() {
 });
 // added click function for google result back button//
 $("#back-btn-google").click(function() {
-  $(".googleMapsAPI").hide();
-  $(".googleMapsAPIList").hide().empty();
-  $("#google-button-container").hide();
-  $("#first-info-panel1").fadeIn(2000);
-  $("#first-info-panel2").fadeIn(2000);
+    $(".googleMapsAPI").hide();
+    $(".googleMapsAPIList").hide().empty();
+    $("#google-button-container").hide();
+    $("#first-info-panel1").fadeIn(2000);
+    $("#first-info-panel2").fadeIn(2000);
 });
 
 // added click function for seatGeek result back button
 
 $("#back-btn-seatGeek").click(function() {
-  $(".googleMapsAPI").hide();
-  $("#seatGeek-back-btn-container").hide();
-  $(".search2").hide();
-  $("#first-info-panel1").fadeIn(2000);
-  $("#first-info-panel2").fadeIn(2000);
-  $("#back-btn-panel2").show();
+    $(".googleMapsAPI").hide();
+    $("#seatGeek-back-btn-container").hide();
+    $(".search2").hide();
+    $("#first-info-panel1").fadeIn(2000);
+    $("#first-info-panel2").fadeIn(2000);
+    $("#back-btn-panel2").show();
 
 
 })
@@ -150,7 +150,6 @@ $("#add-infoGM").on("click", function(event) {
 
 // Google maps api
 function initMap() {
-    $('#map').empty();
     zipcode;
     console.log(zipcode);
 
@@ -177,6 +176,7 @@ function callback(results, status) {
             $('.googleMapsAPIList').append('<p>' + numberOrder + '.  Name: ' + results[i].name + '</p>');
             $('.googleMapsAPIList').append('<p> Address: ' + results[i].vicinity + '</p>');
             $('.googleMapsAPIList').append('<p> Rating: ' + results[i].rating + '</p>');
+
             if (i === 4) {
               break;
             }
@@ -232,7 +232,7 @@ $('#submitForm').on('click', function() {
 $('#add-infoSG').on('click', function() {
     var date = $('#date-input').val().trim();
     var zipcode = $('#zip-code-inputSG').val().trim();
-    var queryURL = 'https://api.seatgeek.com/2/events?&geoip=' + zipcode + '&sort=score.desc&type=' + typeSG + '&datetime_utc.gt=' + date + '&client_id=NzIwMTk3MnwxNDkxMDAyMDQ0LjE2'
+    var queryURL = 'https://api.seatgeek.com/2/events?&geoip=' + zipcode + '&sort=score.desc&type=' + typeSG + '&datetime_utc=' + date + '&client_id=NzIwMTk3MnwxNDkxMDAyMDQ0LjE2'
     console.log(queryURL);
     $.ajax({
         method: "GET",
@@ -240,10 +240,13 @@ $('#add-infoSG').on('click', function() {
     }).done(function(response) {
         $('#map').empty();
         console.log(response);
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; response.events.length; i++) {
             $('#map').append("<p> Artist: " + response.events[i].title + '</p>');
             $('#map').append("<p> Venue: " + response.events[i].venue.name + '</p>');
             $('#map').append("<a href ='" + response.events[i].url + "' target= _blank>Buy Tickets</a>");
+            if (i === 5) {
+                break;
+            }
         }
     });
     $("#first-info-panel1").hide();
@@ -254,67 +257,63 @@ $('#add-infoSG').on('click', function() {
 });
 
 // Instructable API
-function clickFunctionsForStayingInPage2() {
-    var bubbleContainer = $("<div class='col-lg-6 bubbleContainer'>")
-    var link = $("<link rel='stylesheet' type='text/css' href='assets/js/instructable_Static/style.css'>")
-    var container = $("<div class='container'>")
-    var bubbleAPI = $("<div class='bubbleAPI col-lg-6'>")
-    var bubbleWrapper = $("<div class='bubble-wrapper'>")
-    $('.Cooking-click').on('click', function() {
-        $('.panelfirst').hide();
-        $('.panelsecond').fadeIn(3000);
-        bubbleContainer.append(link)
-        bubbleContainer.append(container)
-        container.append(bubbleAPI)
-        bubbleAPI.append(bubbleWrapper)
-        bubbleContainer.hide()
-        bubbleContainer.fadeIn(2000);
-        $(".first-info-panel").append(bubbleContainer)
+var bubbleContainer = $("<div class='col-lg-6 bubbleContainer'>")
+var link = $("<link rel='stylesheet' type='text/css' href='assets/js/instructable_Static/style.css'>")
+var container = $("<div class='container'>")
+var bubbleAPI = $("<div class='bubbleAPI col-lg-6'>")
+var bubbleWrapper = $("<div class='bubble-wrapper'>")
+$('.Cooking-click').on('click', function() {
+    $('.panelfirst').hide();
+    $('.panelsecond').fadeIn(3000);
+    bubbleContainer.append(link)
+    bubbleContainer.append(container)
+    container.append(bubbleAPI)
+    bubbleAPI.append(bubbleWrapper)
+    bubbleContainer.hide()
+    bubbleContainer.fadeIn(2000);
+    $(".first-info-panel").append(bubbleContainer)
 
-        makeChart({ categories: instructablesDataFood }, "categories", instructablesDataFood);
-    });
+    makeChart({ categories: instructablesDataFood }, "categories", instructablesDataFood);
+});
 
-    $('.Desert-click').on('click', function() {
-        $('.panelfirst').hide();
-        $('.panelsecond').fadeIn(3000);
-        bubbleContainer.append(link)
-        bubbleContainer.append(container)
-        container.append(bubbleAPI)
-        bubbleAPI.append(bubbleWrapper)
-        bubbleContainer.hide()
-        bubbleContainer.fadeIn(2000)
-        $(".first-info-panel").append(bubbleContainer)
-        makeChart({ categories: instructablesDataDessert }, "categories", instructablesDataDessert);
+$('.Desert-click').on('click', function() {
+    $('.panelfirst').hide();
+    $('.panelsecond').fadeIn(3000);
+    bubbleContainer.append(link)
+    bubbleContainer.append(container)
+    container.append(bubbleAPI)
+    bubbleAPI.append(bubbleWrapper)
+    bubbleContainer.hide()
+    bubbleContainer.fadeIn(2000)
+    $(".first-info-panel").append(bubbleContainer)
+    makeChart({ categories: instructablesDataDessert }, "categories", instructablesDataDessert);
 
-    })
+})
 
 
-    $('.DIY-click').on('click', function() {
-        $('.panelsecond').hide();
-        $('.panelfirst').fadeIn(3000);
-        bubbleContainer.append(link)
-        bubbleContainer.append(container)
-        container.append(bubbleAPI)
-        bubbleAPI.append(bubbleWrapper)
-        bubbleContainer.hide()
-        bubbleContainer.fadeIn(2000)
-        $(".panel2").append(bubbleContainer)
-        makeChart({ categories: instructablesDataDYS }, "categories", instructablesDataDYS);
+$('.DIY-click').on('click', function() {
+    $('.panelsecond').hide();
+    $('.panelfirst').fadeIn(3000);
+    bubbleContainer.append(link)
+    bubbleContainer.append(container)
+    container.append(bubbleAPI)
+    bubbleAPI.append(bubbleWrapper)
+    bubbleContainer.hide()
+    bubbleContainer.fadeIn(2000)
+    $(".panel2").append(bubbleContainer)
+    makeChart({ categories: instructablesDataDYS }, "categories", instructablesDataDYS);
 
-    });
+});
 
-    $('.Play-click').on('click', function() {
-        $('.panelsecond').hide();
-        $('.panelfirst').fadeIn(3000);
-        bubbleContainer.append(link)
-        bubbleContainer.append(container)
-        container.append(bubbleAPI)
-        bubbleAPI.append(bubbleWrapper)
-        bubbleContainer.hide()
-        bubbleContainer.fadeIn(2000)
-        $(".panel2").append(bubbleContainer)
-        makeChart({ categories: instructablesDataPlay }, "categories", instructablesDataPlay);
-    });
-
-}
-clickFunctionsForStayingInPage2();
+$('.Play-click').on('click', function() {
+    $('.panelsecond').hide();
+    $('.panelfirst').fadeIn(3000);
+    bubbleContainer.append(link)
+    bubbleContainer.append(container)
+    container.append(bubbleAPI)
+    bubbleAPI.append(bubbleWrapper)
+    bubbleContainer.hide()
+    bubbleContainer.fadeIn(2000)
+    $(".panel2").append(bubbleContainer)
+    makeChart({ categories: instructablesDataPlay }, "categories", instructablesDataPlay);
+});
