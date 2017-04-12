@@ -317,3 +317,12 @@ $('.Play-click').on('click', function() {
     $(".panel2").append(bubbleContainer)
     makeChart({ categories: instructablesDataPlay }, "categories", instructablesDataPlay);
 });
+
+
+function AppViewModel() {
+    this.cooking = ko.observable("Cooking");
+    this.cocktails = ko.observable("Cocktails");
+    this.dessert = ko.observable("Dessert");
+}
+ko.applyBindings(new AppViewModel());
+
